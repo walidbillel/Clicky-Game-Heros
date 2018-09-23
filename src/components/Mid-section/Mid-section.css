@@ -1,5 +1,8 @@
 .mid-sec-box {
-    padding: 100px;
+    padding: 25px;
     background-image: url(./image.jpg);
     color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Frijole', cursive;
 }

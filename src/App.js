@@ -3,18 +3,18 @@ import './App.css';
 import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from './components/NavBar';
 import MidSec from './components/Mid-section';
-import dogs from './dogs.json';
-import DogCard from './components/DogCard'
+import heros from './heros.json';
+import HeroCard from './components/HeroCard'
 
 class App extends Component {
 
 
   state = {
-    message: "click an image to begin",
+    message: "Click an image to begin",
     currentScore: 0,
     topScore: 0,
-    dogs: dogs,
-    clickedDogs: []
+    heros: heros,
+    unselectedHeros: heros
   }
 
 
@@ -26,54 +26,55 @@ class App extends Component {
     }
   }
 
-  removeDog = breed => {
-    if (this.state.clickedDogs.includes(breed)) {
-     
+  selectHero = hero => {
+    const findDog = this.state.unselectedHeros.find(item => item.hero === hero);
 
-      alert("You Lose");
-      console.log("You Lose");
-      this.state.topScore = this.state.currentScore;
-      this.state.currentScore = 0;
-      const clickedDogs = []
-      this.setState({ clickedDogs: clickedDogs });
+    if(findDog === undefined) {
+        // failure to select a new dog
+        this.setState({ 
+            message: "You guessed incorrectly!",
+            topScore: (this.state.currentScore > this.state.topScore) ? this.state.currentScore : this.state.topScore,
+            currentScore: 0,
+            heros: heros,
+            unselectedHeros: heros
+        });
     }
-    else if (!this.state.clickedDogs.includes(breed)) {
-      this.state.clickedFriends.push(breed);
-      console.log("you clicked a new friend");
-      console.log(this.state.clickedDogs);
-      this.state.currentScore++;
-      console.log(this.state.currentScore);
+    else {
+        // success to select a new dog
+        const newHeros = this.state.unselectedHeros.filter(item => item.hero !== hero);
+        
+        this.setState({ 
+            message: "You guessed correctly!",
+            currentScore: this.state.currentScore + 1,
+            heros: heros,
+            unselectedHeros: newHeros
+        });
     }
-    // if (this.state.currentScore == 10) {
-    //   alert("You Win")
-    // }
 
-    const dogs = this.shuffleArray(this.state.dogs);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ dogs: dogs });
-  }
-
-
-
-
-
+    this.shuffleArray(heros);
+};
 
 
   render() {
-    console.log(dogs);
+    // console.log(heros);
 
     return (
       <Router>
         <div className="App">
 
-          <NavBar />
+          <NavBar  message={this.state.message}
+                    currentScore={this.state.currentScore}
+                    topScore={this.state.topScore} />
 
           <MidSec />
-          {this.state.dogs.map(dog =>
-            <DogCard
-              removeDog={this.removeDog}
-              breed={dog.breed}
-              image={dog.image}
+
+          
+          {this.state.heros.map(dog =>
+            <HeroCard
+            hero={dog.hero}
+            image={dog.image}
+            selectHero={this.selectHero} 
+            currentScore={this.state.currentScore}
             />
           )}
         </div>

@@ -1,0 +1,34 @@
+[
+    {
+        "hero": "Batman",
+        "image": "https://www.dccomics.com/sites/default/files/GalleryChar_1920x1080_BM_Cv38_54b5d0d1ada864.04916624.jpg"
+    },
+    {
+        "hero": "Superman",
+        "image": "https://static3.srcdn.com/wordpress/wp-content/uploads/2018/04/Superman-by-Dan-Jurgens-in-Action-Comics-1000.jpg"
+    },
+    {
+        "hero": "Spiderman",
+        "image": "http://media.comicbook.com/2018/04/spider-man-1099203.jpeg"
+    },
+    {
+        "hero": "The Flash",
+        "image": "http://wegotthiscovered.com/wp-content/uploads/2018/05/the-flash-season-4-poster-amunet.jpg"
+    },
+    {
+        "hero": "Catwomen",
+        "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/07/Catwoman-New-Comic-Book.jpg"
+    },
+    {
+        "hero": "Birdamn",
+        "image": "https://cdn1.thr.com/sites/default/files/imagecache/scale_crop_768_433/2015/02/birdman_still.jpg"
+    },
+    {
+        "hero": "Captin America",
+        "image": "https://i.ytimg.com/vi/qLXtb8Mz3xY/maxresdefault.jpg"
+    },
+    {
+        "hero": "The Hulk",
+        "image": "https://www.fjackets.com/blog/wp-content/uploads/2017/05/Hulk-Mask-810x492.png"
+    }
+]
